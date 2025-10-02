@@ -20,7 +20,7 @@ int main(int argc, char** argv) {
 
     /******************ADD YOUR VARIABLES HERE*************************/
 
-
+    int current_time = 0;  // keep track of the current time in the simulation
 
     /******************************************************************/
 
@@ -29,7 +29,10 @@ int main(int argc, char** argv) {
         auto [activity, duration_intr] = parse_trace(trace);
 
         /******************ADD YOUR SIMULATION CODE HERE*************************/
-
+        
+        if(activity == "CPU") {
+            execution += simulate_cpu(duration_intr, current_time);
+        }
 
 
         /************************************************************************/
