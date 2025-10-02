@@ -140,3 +140,10 @@ void write_output(std::string execution) {
     std::cout << "Output generated in execution.txt" << std::endl;
 }
 #endif
+
+/*
+* Assingment 1 Functions
+*/
+
+// simulate CPU execution for a given duration
+std::string simulate_cpu(int duration, int& current_time);
