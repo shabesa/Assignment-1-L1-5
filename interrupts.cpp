@@ -91,3 +91,30 @@ std::string execute_iret(int& current_time) {
     current_time += 1;
     return result;
 }
+
+/*
+    restore_context function, simulates the restoration of the CPU context
+    current_time: reference to the current time in the simulation
+
+    returns a string representing the context restoration log
+*/
+std::string restore_context(int& current_time) {
+    const int CONTEXT_TIME = 10;
+    std::string result = std::to_string(current_time) + ", " 
+                        + std::to_string(CONTEXT_TIME) + ", " 
+                        + "context restored\n";
+    current_time += CONTEXT_TIME;
+    return result;
+}
+
+/*
+    switch_to_user_mode function, simulates switching the CPU back to user mode
+    current_time: reference to the current time in the simulation
+
+    returns a string representing the switch to user mode log
+*/
+std::string switch_to_user_mode(int& current_time) {
+    std::string result = std::to_string(current_time) + ", 1, switch to user mode\n";
+    current_time += 1;
+    return result;
+}

@@ -160,4 +160,13 @@ std::string execute_isr(int device_num, int& current_time, std::vector<int>& del
 */
 std::string execute_iret(int& current_time);
 
-std::string restore_context(int& current_time); // not implemented yet
+/*
+    switch CPU context
+*/
+std::string restore_context(int& current_time);
+
+
+/*
+    switch to user mode
+*/
+std::string switch_to_user_mode(int& current_time);
