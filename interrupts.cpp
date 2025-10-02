@@ -32,8 +32,9 @@ int main(int argc, char** argv) {
         
         if(activity == "CPU") {
             execution += simulate_cpu(duration_intr, current_time);
+        } else if (activity == "SYSCALL" || activity == "END_IO"){
+            execution += handle_interrupt(duration_intr, current_time, vectors, delays, activity);
         }
-
 
         /************************************************************************/
 
