@@ -61,7 +61,12 @@ std::string simulate_cpu(int duration, int& current_time) {
 }
 
 /*
-    
+    ISR execution function, simulates the execution of an ISR for a given device
+    device_num: the device number (index in the delays vector)
+    current_time: reference to the current time in the simulation
+    delays: vector of delays for each device
+
+    returns a string representing the ISR execution log
 */
 
 std::string execute_isr(int device_num, int& current_time, std::vector<int>& delays,
