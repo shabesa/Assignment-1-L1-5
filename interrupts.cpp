@@ -118,3 +118,33 @@ std::string switch_to_user_mode(int& current_time) {
     current_time += 1;
     return result;
 }
+
+
+/*
+    handle_interrupt function, simulates the entire interrupt handling process
+    device_num: the device number (index in the vectors and delays vectors)
+    current_time: reference to the current time in the simulation
+    vectors: vector of ISR addresses for each device
+    delays: vector of delays for each device
+    interrupt_type: string representing the type of interrupt (e.g., "SYSCALL", "END_IO")
+
+    returns a string representing the complete interrupt handling log
+*/
+std::string handle_interrupt(int device_num, int& current_time, std::vector<std::string>& vectors, std::vector<int>& delays, const std::string& interrupt_type) {
+
+    std::string result = "";
+    const int CONTEXT_TIME = 10;
+
+    auto [boilerplate, new_time] = intr_boilerplate(current_time, device_num, CONTEXT_TIME, vectors);
+
+    result += boilerplate;
+    current_time = new_time;
+
+    result += execute_isr(device_num, current_time, delays, interrupt_type);
+    result += execute_iret(current_time);
+    result += restore_context(current_time);
+    result += switch_to_user_mode(current_time);
+
+    return result;
+
+}

@@ -170,3 +170,11 @@ std::string restore_context(int& current_time);
     switch to user mode
 */
 std::string switch_to_user_mode(int& current_time);
+
+/*
+    Main interrupt handling function
+*/
+std::string handle_interrupt(int device_num, int& current_time,
+                            std::vector<std::string>& vectors,
+                            std::vector<int>& delays,
+                            const std::string& interrupt_type);
