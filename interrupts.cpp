@@ -42,3 +42,17 @@ int main(int argc, char** argv) {
 
     return 0;
 }
+
+/*
+* Function to simulate CPU time 
+*/
+
+std::string simulate_cpu(int duration, int& current_time) {
+
+    std::string result = std::to_string(current_time) + ", " 
+                        + std::to_string(duration) + ", "
+                        + "CPU execution\n";
+    current_time += duration;
+    return result;
+
+}
