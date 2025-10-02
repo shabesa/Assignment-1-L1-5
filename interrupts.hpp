@@ -147,3 +147,10 @@ void write_output(std::string execution) {
 
 // simulate CPU execution for a given duration
 std::string simulate_cpu(int duration, int& current_time);
+
+/*
+    Interrupts service routines
+
+*/
+std::string execute_isr(int device_num, int& current_time, std::vector<int>& delays, 
+                        const std::string& isr_type);

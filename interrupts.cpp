@@ -59,3 +59,18 @@ std::string simulate_cpu(int duration, int& current_time) {
     return result;
 
 }
+
+/*
+    
+*/
+
+std::string execute_isr(int device_num, int& current_time, std::vector<int>& delays,
+                        const std::string& isr_type) {
+    int isr_delay = delays[device_num];
+    std::string result = std::to_string(current_time) + ", " 
+                        + std::to_string(isr_delay) + ", " 
+                        + isr_type + ": run the ISR\n";
+    current_time += isr_delay;
+    return result;
+
+}
