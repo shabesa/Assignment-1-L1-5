@@ -154,3 +154,10 @@ std::string simulate_cpu(int duration, int& current_time);
 */
 std::string execute_isr(int device_num, int& current_time, std::vector<int>& delays, 
                         const std::string& isr_type);
+
+/*
+    IRET execution function
+*/
+std::string execute_iret(int& current_time);
+
+std::string restore_context(int& current_time); // not implemented yet

@@ -79,3 +79,15 @@ std::string execute_isr(int device_num, int& current_time, std::vector<int>& del
     return result;
 
 }
+
+/*
+    IRET execution function, simulates the execution of the IRET instruction
+    current_time: reference to the current time in the simulation
+
+    returns a string representing the IRET execution log
+*/
+std::string execute_iret(int& current_time) {
+    std::string result = std::to_string(current_time) + ", 1, IRET\n";
+    current_time += 1;
+    return result;
+}
